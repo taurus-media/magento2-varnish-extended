@@ -57,7 +57,7 @@ sub vcl_recv {
 
     # Allow cache purge via Ctrl-Shift-R or Cmd-Shift-R for IP's in purge ACL list
     if (req.http.pragma ~ "no-cache" || req.http.Cache-Control ~ "no-cache") {
-        if (client.ip ~ purge) {
+        if (std.ip(req.http.X-Real-IP, "0.0.0.0") ~ purge) {
             set req.hash_always_miss = true;
         }
     }
