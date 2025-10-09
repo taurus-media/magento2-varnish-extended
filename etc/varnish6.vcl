@@ -67,7 +67,7 @@ sub vcl_recv {
     # The X-Magento-Tags-Pattern value is matched to the tags in the X-Magento-Tags header
     # If X-Magento-Tags-Pattern is not set, a URL-based purge is executed
     if (req.method == "PURGE") {
-        if (client.ip !~ purge) {
+        if (std.ip(req.http.X-Real-IP, "0.0.0.0") !~ purge) {
             return (synth(405));
         }
 
