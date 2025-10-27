@@ -25,6 +25,7 @@
                         <param_epik><param>epik</param></param_epik>
                         <param_fbclid><param>fbclid</param></param_fbclid>
                         <param_gad_source><param>gad_source</param></param_gad_source>
+                        <param_gad_campaignid><param>gad_campaignid</param></param_gad_campaignid>
                         <param_gbraid><param>gbraid</param></param_gbraid>
                         <param_gclid><param>gclid</param></param_gclid>
                         <param_gclsrc><param>gclsrc</param></param_gclsrc>
