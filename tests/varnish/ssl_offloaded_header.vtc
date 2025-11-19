@@ -1,4 +1,4 @@
-varnishtest "X-Magento-Vary cookie handling"
+varnishtest "SSL offloaded header"
 
 barrier b1 cond 2
 
