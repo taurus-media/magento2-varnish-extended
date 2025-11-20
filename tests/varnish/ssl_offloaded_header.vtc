@@ -1,4 +1,4 @@
-varnishtest "X-Magento-Vary cookie handling"
+varnishtest "SSL offloaded header"
 
 barrier b1 cond 2
 
@@ -72,7 +72,7 @@ varnish v1 -arg "-f" -arg "${tmpdir}/output.vcl" -arg "-p" -arg "vsl_mask=+Hash"
 # Wait for probe
 barrier b1 sync
 
-logexpect l1 -v v1 -g request -i Hash {
+logexpect l1 -v v1 -i Hash {
     # Test 1: no X-Forwarded-Proto header set
     expect 0 1001 Hash ^/$
     expect 0 1001 Hash ^127\.0\.0\.1$
