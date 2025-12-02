@@ -51,8 +51,8 @@ class VCLGenerator extends \Magento\PageCache\Model\Varnish\VclGenerator
             'disable_bfcache' => (bool) !$this->varnishExtendedConfig->getEnableBfcache(),
             'enable_media_cache' => (bool) $this->varnishExtendedConfig->getEnableMediaCache(),
             'enable_static_cache' => (bool) $this->varnishExtendedConfig->getEnableStaticCache(),
-            'use_xkey_vmod' => (int) $this->varnishExtendedConfig->getUseXkeyVmod(),
-            'use_soft_purging' => (int) $this->varnishExtendedConfig->getUseSoftPurging(),
+            'use_xkey_vmod' => (bool) $this->varnishExtendedConfig->getUseXkeyVmod(),
+            'use_soft_purging' => (bool) $this->varnishExtendedConfig->getUseSoftPurging(),
             'pass_on_cookie_presence' => $this->varnishExtendedConfig->getPassOnCookiePresence(),
             'design_exceptions_code' => $this->getRegexForDesignExceptions()
         ];
