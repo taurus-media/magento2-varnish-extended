@@ -2,6 +2,7 @@ varnishtest "SSL offloaded header"
 
 barrier b1 cond 2
 
+# Initialize barrier to control execution flow
 barrier b1 cond 2
 
 server s1 {
