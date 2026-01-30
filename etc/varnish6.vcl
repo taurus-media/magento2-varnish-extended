@@ -197,6 +197,14 @@ sub vcl_hash {
     if (req.url ~ "/graphql") {
         call process_graphql_headers;
     }
+
+    # Strip trailing slash from URL for cache normalization
+    hash_data(regsub(req.url, "\/$", ""));
+
+    # Always include the host header in the hash to separate different websites
+    hash_data(req.http.Host);
+
+    return(lookup);
 }
 
 sub process_graphql_headers {
