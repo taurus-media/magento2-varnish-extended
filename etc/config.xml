@@ -7,6 +7,7 @@
                     <enable_bfcache>1</enable_bfcache>
                     <enable_media_cache>0</enable_media_cache>
                     <enable_static_cache>0</enable_static_cache>
+                    <enable_404_cache>1</enable_404_cache>
                     <tracking_parameters>
                         <param__branch_match_id><param>_branch_match_id</param></param__branch_match_id>
                         <param__bta_c><param>_bta_c</param></param__bta_c>
@@ -25,6 +26,7 @@
                         <param_epik><param>epik</param></param_epik>
                         <param_fbclid><param>fbclid</param></param_fbclid>
                         <param_gad_source><param>gad_source</param></param_gad_source>
+                        <param_gad_campaignid><param>gad_campaignid</param></param_gad_campaignid>
                         <param_gbraid><param>gbraid</param></param_gbraid>
                         <param_gclid><param>gclid</param></param_gclid>
                         <param_gclsrc><param>gclsrc</param></param_gclsrc>

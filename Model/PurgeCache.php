@@ -63,7 +63,7 @@ class PurgeCache extends \Magento\CacheInvalidate\Model\PurgeCache
      * @param array|string $tags
      * @return bool Return true if successful; otherwise return false
      */
-    public function sendPurgeRequest($tags): bool
+    public function sendPurgeRequest($tags)
     {
         if (is_string($tags)) {
             $tags = [$tags];

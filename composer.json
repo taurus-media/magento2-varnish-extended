@@ -5,7 +5,8 @@
     "license": "OSL-3.0",
     "require": {
         "magento/framework": ">=103.0.7",
-        "magento/module-page-cache": "*"
+        "magento/module-page-cache": "*",
+        "php": "^8.3"
     },
     "autoload": {
         "files": [

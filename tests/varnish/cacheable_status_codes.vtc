@@ -1,11 +1,14 @@
 varnishtest "Check cacheable status codes"
 
+barrier b1 cond 2
+
 server s1 {
     # Probe request
     rxreq
     expect req.url == "/health_check.php"
     txresp
     close
+    barrier b1 sync
     accept
 
     # 200 OK response - first request
@@ -51,17 +54,18 @@ server s1 {
     txresp -status 301 -hdr "Location: /new-location" -body "Status 301 response 2"
 } -start
 
-# Generate the VCL file
+# Generate the VCL file with 404 caching enabled (default behavior)
 shell {
     export s1_addr="${s1_addr}"
     export s1_port="${s1_port}"
+    export ENABLE_404_CACHE="1"
     ${testdir}/helpers/parse_vcl.pl "${testdir}/../../etc/varnish6.vcl" "${tmpdir}/output.vcl"
 }
 
 varnish v1 -arg "-f" -arg "${tmpdir}/output.vcl" -arg "-p" -arg "vsl_mask=+Hash" -start
 
 # make sure the probe request fired
-delay 1
+barrier b1 sync
 
 client c1 {
     # 200 OK response - first request (should be a MISS)
